@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
 <!--
-  Universal robot ur5 launch.  Loads ur5 robot description (see ur_common.launch
-  for more info)
+  Connecting UR5 with Robotiq 85, reflacting real-time state from real hardware to RViz
 
   Usage:
-    ur5_bringup.launch robot_ip:=<value>
+    roslaunch ros_ur5_robotiq_2f_85 ros_ur5_robotiq_2f_85.launch robot_ip:=<robot_ip> comport:=<comport>
 -->
 <launch>
   <!-- arguments for ur5 -->
@@ -21,11 +20,10 @@
 
   <!-- robot model -->
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find ur5_description)/urdf/ur5_robotiq85_gripper.urdf.xacro" />
-<!--  <param name="robot_description" command="$(find xacro)/xacro &#45;&#45;inorder $(find robotiq_85_description)/urdf/robotiq_85_gripper.urdf.xacro" />-->
 
   <!-- UR5 ROS Driver-->
   <include file="$(find ur_modern_driver)/launch/ur_common.launch">
-    <arg name="prefix"  value="$(arg prefix)" />
+    <arg name="prefix"  value="$(arg prefix)"/>
     <arg name="robot_ip" value="$(arg robot_ip)"/>
     <arg name="min_payload"  value="$(arg min_payload)"/>
     <arg name="max_payload"  value="$(arg max_payload)"/>
@@ -38,6 +36,7 @@
       <param name="baud" value="$(arg baud)" />
   </node>
 
+  <!-- robot state publisher -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
       <param name="robot_description" type="string" value="robot_description"/>
       <param name="publish_frequency" type="double" value="100.0" />
