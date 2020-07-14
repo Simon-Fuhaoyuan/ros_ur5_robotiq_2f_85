@@ -1,9 +1,12 @@
 # ros_ur5_robotiq_2f_85
 Adding ur5 with robotiq_2f_85 in ROS Melodic, visualizing in RViz and executing on real hardware.
 
-## References
-https://github.com/StanleyInnovation/robotiq_85_gripper
+## Environment
 
+* Ubuntu 18.04
+* Python 2.7
+* gcc/g++ 7.5.0
+* ROS-Melodic
 
 ## Usage
 First clone this repository to your catkin workspace. If you do not have a catkin workspace, please follow this [tutorial](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment#Create_a_ROS_Workspace) to create one.
@@ -51,3 +54,12 @@ Based on initial robotiq_85 driver [here](https://github.com/StanleyInnovation/r
 * joint_state_publisher
 
 Both these two nodes will have relationship with '/joint_states'. The former one will read data from /joint_states, and the latter one will write data into /joint_states based on the default joint state in URDF. However, when they both work, the joint state from 'joint state_publisher' will have conflict with ur5_driver, which makes the simulated robot in RViz teleporting.
+
+## References
+https://github.com/StanleyInnovation/robotiq_85_gripper
+
+https://github.com/ros-industrial/ur_modern_driver
+
+https://github.com/ros-industrial/universal_robot/tree/melodic-devel/ur_description
+
+https://github.com/utecrobotics/ur5/tree/master/ur5_description
