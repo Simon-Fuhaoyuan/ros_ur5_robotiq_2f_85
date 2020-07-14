@@ -1,0 +1,3 @@
+[submodule "robotiq_85_gripper"]
+	path = robotiq_85_gripper
+	url = ./robotiq_85_gripper/
