@@ -6,10 +6,25 @@ https://github.com/StanleyInnovation/robotiq_85_gripper
 
 
 ## Usage
-First clone this repository to your catkin workspace
+First clone this repository to your catkin workspace. If you do not have a catkin workspace, please follow this [tutorial](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment#Create_a_ROS_Workspace) to create one.
 ```
-git clone 
+cd $YOUR_CATKIN_WS$/src
+git clone https://github.com/Simon-Fuhaoyuan/ros_ur5_robotiq_2f_85.git
 ```
+
+Next, make these files and source the setup bash.
+```
+cd .. & catkin_make
+source devel/setup.bash
+```
+
+Then, run the launch file in ROS. Remember to add your user username to user group dialout, click [here](https://github.com/Simon-Fuhaoyuan/ros_ur5_robotiq_2f_85#usb-and-baud) for more details.
+```
+roslaunch ros_ur5_robotiq_2f_85 ur5_robotiq_bringup.launch
+```
+If everything works well, you will see something like this in RViz.
+
+![UR5 with robotiq_85 in RViz](rviz.png)
 
 ## Procedure
 Connecting a hardware with PC in ROS needs the following three steps:
