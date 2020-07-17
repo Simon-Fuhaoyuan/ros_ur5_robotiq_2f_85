@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: ros_ur5_robotiq_2f_85
+    relative_path: urdf/ur5_robotiq85.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/ur5_robotiq85.srdf
+  CONFIG:
+    author_name: Haoyuan Fu
+    author_email: simon-fuhaoyuan@sjtu.edu.cn
+    generated_timestamp: 1594981578
